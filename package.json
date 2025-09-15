@@ -1,16 +1,14 @@
 {
-  "name": "site",
+  "name": "classical-music-archive",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["classical-music", "archive", "programming", "ai-music"],
+  "author": "Classical Music Archive Team",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "express": "^5.1.0"
-  }
+  "description": "A programming-powered classical music archive exploring the intersection of timeless compositions and modern technology",
+  "dependencies": {}
 }
