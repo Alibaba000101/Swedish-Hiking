@@ -75,20 +75,20 @@ function createHomePage() {
   return `
     <html>
       <head>
-        <title>Harmonic Chronicles</title>
+        <title>Swedish Hiking Guide</title>
         ${createPageStyles()}
       </head>
       <body>
-        <h1>Welcome to Harmonic Chronicles</h1>
+        <h1>Welcome to Swedish Hiking Guide</h1>
         ${createNavigationMenu()}
         <div class="content">
-          <h2>Musical Journey Awaits</h2>
-          <p>Embark on an eloquent exploration of music's most captivating historical narratives.</p>
-          <p>Navigate through the harmonious tapestry of musical evolution and discover the revolutionary moments that shaped our sonic landscape.</p>
+          <h2>Discover Sweden's Natural Beauty</h2>
+          <p>Embark on an unforgettable journey through Sweden's stunning landscapes, from ancient forests to majestic mountains.</p>
+          <p>Explore the best hiking trails, learn essential hiking techniques, and discover Sweden's unique outdoor culture with allemansrätten (right to roam).</p>
           <ul>
-            <li><strong>Home & About:</strong> Gateway to musical enlightenment</li>
-            <li><strong>Contact & Blog:</strong> Curated chronicles from musical archives</li>
-            <li><strong>Blog:</strong> Dynamic exploration of musical genres, eras, and revolutionary movements</li>
+            <li><strong>Home & About:</strong> Your gateway to Swedish hiking adventures</li>
+            <li><strong>Contact & Blog:</strong> Essential hiking guides and trail information</li>
+            <li><strong>Blog:</strong> Comprehensive hiking how-tos, trail guides, and safety tips</li>
           </ul>
         </div>
       </body>
@@ -100,22 +100,23 @@ function createAboutPage() {
   return `
     <html>
       <head>
-        <title>About - Harmonic Chronicles</title>
+        <title>About - Swedish Hiking Guide</title>
         ${createPageStyles()}
       </head>
       <body>
-        <h1>About Our Musical Archive</h1>
+        <h1>About Swedish Hiking Guide</h1>
         ${createNavigationMenu()}
         <div class="content">
-          <h2>The Symphonic Archive</h2>
-          <p>Harmonic Chronicles represents a meticulously crafted digital sanctuary celebrating the profound evolution of musical artistry:</p>
+          <h2>Your Complete Hiking Resource</h2>
+          <p>Swedish Hiking Guide is your comprehensive resource for exploring Sweden's incredible wilderness and hiking culture:</p>
           <ul>
-            <li>Immersive narrative experiences (Home and About pages)</li>
-            <li>Curated historical documentation (Contact and Blog archives)</li>
-            <li>Dynamic exploration of musical movements and influential artists</li>
-            <li>Harmonious design philosophy reflecting musical aesthetic principles</li>
+            <li>Detailed trail guides and hiking routes across Sweden</li>
+            <li>Essential hiking how-tos and safety information</li>
+            <li>Information about Sweden's unique allemansrätten (right to roam)</li>
+            <li>Seasonal hiking tips and weather considerations</li>
+            <li>Equipment recommendations and packing guides</li>
           </ul>
-          <p>Elegantly constructed with thoughtful programming, embodying the minimalist beauty of classical composition.</p>
+          <p>Whether you're a beginner or experienced hiker, discover the natural beauty that makes Sweden one of the world's premier hiking destinations.</p>
         </div>
       </body>
     </html>
@@ -168,51 +169,51 @@ const server = http.createServer((req, res) => {
     let filename = 'content/blog.html';
 
     if (query.post) {
-      queryInfo = `<div class="query-info"><strong>Musical Post:</strong> ${query.post}</div>`;
+      queryInfo = `<div class="query-info"><strong>Hiking Topic:</strong> ${query.post}</div>`;
 
       const postFiles = {
-        'tech': 'ai.html',
-        'web': 'digital.html',
-        'nodejs': 'programming.html'
+        'gear': 'gear.html',
+        'trails': 'trails.html',
+        'safety': 'safety.html'
       };
       filename = `content/${postFiles[query.post] || 'blog.html'}`;
     }
 
     if (query.theme) {
-      const themeInfo = `<div class="query-info"><strong>Musical Theme:</strong> ${query.theme}</div>`;
+      const themeInfo = `<div class="query-info"><strong>Guide Type:</strong> ${query.theme}</div>`;
       queryInfo = queryInfo + themeInfo;
-   
+
       const themeFiles = {
-        'tutorial': 'education.html',
-        'news': 'news.html'
+        'howto': 'howto.html',
+        'locations': 'locations.html'
       };
       filename = `content/${themeFiles[query.theme] || 'blog.html'}`;
     }
 
     if (query.post && query.theme) {
-  
-      if (query.post === 'tech' && query.theme === 'tutorial') {
-        filename = 'content/ai.html';
+
+      if (query.post === 'gear' && query.theme === 'howto') {
+        filename = 'content/gear.html';
       } else {
         filename = 'content/blog.html';
       }
     }
 
-    res.end(createPageWithFileContent('Musical Chronicle', filename, queryInfo));
+    res.end(createPageWithFileContent('Hiking Guide', filename, queryInfo));
   } else {
     res.statusCode = 404;
     res.end(`
       <html>
         <head>
-          <title>404 - Harmony Lost</title>
+          <title>404 - Trail Not Found</title>
           ${createPageStyles()}
         </head>
         <body>
-          <h1>404 - The Melody Escapes Us</h1>
+          <h1>404 - Trail Not Found</h1>
           ${createNavigationMenu()}
           <div class="content">
-            <p>The musical passage you seek has drifted beyond our orchestral reach.</p>
-            <p><a href="/">Return to the Concert Hall</a></p>
+            <p>The hiking trail you're looking for seems to have wandered off the beaten path.</p>
+            <p><a href="/">Return to Base Camp</a></p>
           </div>
         </body>
       </html>
