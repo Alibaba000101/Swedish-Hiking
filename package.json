@@ -1,14 +1,10 @@
 {
-  "name": "classical-music-archive",
+  "name": "swedish-hiking-guide",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "keywords": ["classical-music", "archive", "programming", "ai-music"],
-  "author": "Classical Music Archive Team",
-  "license": "ISC",
-  "description": "A programming-powered classical music archive exploring the intersection of timeless compositions and modern technology",
+  "description": "Swedish hiking guide using pure Node.js",
   "dependencies": {}
 }
